@@ -34,6 +34,11 @@ void deleteVehicle(parkingLot** head, char time_out[30], char plate[30]) {
     parkingLot* current = *head;
     parkingLot* prev = current;
 
+    if (!strcmp((*head)->plate, plate)) {
+        (*head) = (*head)->next;
+        return;
+    }
+    
     while (current != NULL) {
         if (!strcmp(current->plate, plate)) {
             prev->next = current->next;
